@@ -1,18 +1,39 @@
+/*
+ * DIWire Bender
+ * 3D Wire Bender by Pensa - www.PensaNYC.com
+ * Written by Marco Perry. Email DIWire@PensaNYC.com for questions.
+ * Drives on 3 Stepper Motors to bender wire in 3D space
+ *
+ * This file is part of the DIWire project.
+ *
+ *  DIWire's software is a free software & hardware device: you can redistribute it and/or modify
+ *  it's software under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation, version 3 of the License.
+ *   
+ *  The hardware portion is licenced under the Creative Commons-Attributions-Share Alike License 3.0
+ *  The CC BY SA licence can be seen here: http://creativecommons.org/licenses/by-sa/3.0/us/
+    
+
+ *  DIWIre is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License and CC-BY-SA for more details.
+
+ *  You should have received a copy of the GNU General Public License
+ *  along with DIWire.  If not, see <http://www.gnu.org/licenses/>. 
+ *  and http://creativecommons.org/licenses/by-sa/3.0/us/legalcode
+ *  
+ *  No portion of this header can be removed from the code. 
+ *  Now enjoy and start making something!
+ */
+
+/* the following program uploads a svg file, draws the 2D shape, allows user to set the print resolution,
+   calculates the feed and bend angles to print the 2D shape, and sends these values to the arduino*/
+
 //import these libraries from libraries folder
 import processing.serial.*;
 import geomerative.*;
 Serial arduino;
-
-/*
- * DIWire Bender
- * 3D Wire Bender by Pensa - www.PensaNYC.com
- * Written by Marco Perry. Call (718) 855 - 5354 for questions or support.
- * Drives on 3 Stepper Motors to bender wire in 3D space
- *
- */
-
-/*the following program uploads a svg file, draws the 2D shape, allows user to set the print resolution,
- calculates the feed and bend angles to print the 2D shape, and sends these values to the arduino*/
 
 
 //Declaring the objects being used to print
