@@ -4,7 +4,8 @@
  * Drives on 3 Stepper Motors to bender wire in 2D space
  *
  * This file is part of the DIWire project.
- *
+ * This file bends in 2D by reading and SVG file (vector graphics file).
+ * 
  *  DIWire's software is a free software & hardware device: you can redistribute it and/or modify
  *  it's software under the terms of the GNU General Public License as published by
  *  the Free Software Foundation, version 3 of the License.
