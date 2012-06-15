@@ -1,8 +1,7 @@
-/*
- * DIWire Bender
+/* DIWire Bender
  * 3D Wire Bender by Pensa - www.PensaNYC.com
  * Written by Marco Perry. Email DIWire@PensaNYC.com for questions.
- * Drives on 3 Stepper Motors to bender wire in 3D space
+ * Drives on 3 Stepper Motors to bender wire in 2D space
  *
  * This file is part of the DIWire project.
  *
