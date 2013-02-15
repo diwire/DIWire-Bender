@@ -2,6 +2,10 @@
 
 The DIWire Bender is a rapid prototype machine created by [PensaNYC.com](http://pensanyc.com/) that bends metal wire to produce 2D or 3D shapes.
 
+## _What can it be used for?_
+
+Wire models are often needed in design, whether they are for furniture (chair leg scale models) or housewares projects (wire baskets) or even engineering parts (custom springs). But why stop at prototypes? The machine can read any data, why not output artwork from a random number algorithm, or internet data like stock prices and weather stats. You can create mass customized products, like eyeglass frames that fit, or be a street vendor printing jewelry from a person’s silhouette, on demand. And it doesn’t have to be aluminum wire; in principal the machine could bend other materials, including colored electrical wires, some plastics, memory metals, even light pipes to create small light forms. And if you don’t like the output, it could be configured to pass the bent wire through the straightener to start again.
+
 ## _How does it work?_
 
 An arduino program imports the bend angles and feed lengths from a processing script. The inputs are in turn translated into DIWire motor commands. During the print, the wire unwinds from a spool, passes through a series of wheels that straighten it, and then feeds through the bending head. The bending head moves in 3 dimensions to create the desired bends and curves.
@@ -30,15 +34,17 @@ An arduino program imports the bend angles and feed lengths from a processing sc
 
 6. Follow the on-screen instructions.
 
-7. Print!
+7. Bend!
 
 ## _Build Resources_
 
+> ___3D Printed Parts___: STL and STEP files provided.
+
+> ___Bill of Materials___: Excel and Markdown files provided.
+
 > ___Construction Video___: <https://vimeo.com/44274793>
 
-> ___3D Printed Parts___: STL or STEP files provided.
-
-> ___Bill of Materials___: Excel or Markdown files provided.
+> ___Demo Video___: <http://vimeo.com/43278619>
 
 ## _Questions/Comments_
 
