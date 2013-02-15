@@ -2,11 +2,11 @@
 
 The DIWire Bender is a rapid prototype machine created by [PensaNYC.com](http://pensanyc.com/) that bends metal wire to produce 2D or 3D shapes.
 
-## _How does this thing work?_
+## _How does it work?_
 
 An arduino program imports the bend angles and feed lengths from a processing script. The inputs are in turn translated into DIWire motor commands. During the print, the wire unwinds from a spool, passes through a series of wheels that straighten it, and then feeds through the bending head. The bending head moves in 3 dimensions to create the desired bends and curves.
 
-## _What types of inputs are supported?_
+## _Supported inputs_
 
 - Vector Files: _(e.g., Adobe Illustrator files)_
 
@@ -34,9 +34,11 @@ An arduino program imports the bend angles and feed lengths from a processing sc
 
 ## _Build Resources_
 
-> __Construction Video__: <https://vimeo.com/44274793>
+> ___Construction Video___: <https://vimeo.com/44274793>
 
-> __3D Printed Parts__: .STL and .STEP files are provided.
+> ___3D Printed Parts___: STL or STEP files provided.
+
+> ___Bill of Materials___: Excel or Markdown files provided.
 
 ## _Questions/Comments_
 
