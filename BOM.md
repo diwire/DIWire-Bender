@@ -24,7 +24,7 @@ Quantity | Part Description | Specific Use | Recommended Purchase
 
 ## _Additional Materials_
 
-The following items were originally listed on the BOM, however they were removed from the latest release. Until it is determined if this was an accident or on purpose these materials will remain in this supplimentary list. In addition the Pensa000_Top_Plate_Hole_Layout has also been added to this list.
+The following items were originally listed on the BOM, however they were removed from the latest release. Until it is determined if this was an accident or on purpose these materials will remain in this supplementary list. In addition the Pensa000_Top_Plate_Hole_Layout has also been added to this list.
 
 Quantity | Part Description | Specific Use | Recommended Purchase
 :---:| --- | --- | ---
