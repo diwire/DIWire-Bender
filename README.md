@@ -8,7 +8,7 @@ Wire models are often needed in design, whether they are for furniture (chair le
 
 ## _How does it work?_
 
-An arduino program imports the bend angles and feed lengths from a processing script. The inputs are in turn translated into DIWire motor commands. During the print, the wire unwinds from a spool, passes through a series of wheels that straighten it, and then feeds through the bending head. The bending head moves in 3 dimensions to create the desired bends and curves.
+An Arduino program imports the bend angles and feed lengths from a processing script. The inputs are in turn translated into DIWire motor commands. During the print, the wire unwinds from a spool, passes through a series of wheels that straighten it, and then feeds through the bending head. The bending head moves in 3 dimensions to create the desired bends and curves.
 
 ## _Supported inputs_
 
@@ -30,7 +30,7 @@ An arduino program imports the bend angles and feed lengths from a processing sc
 
 4. Create either an svg file or txt commands and save it in the corresponding program folder.
 
-5. Connect the arduino board to the computer using the Arduino usb and define the port.
+5. Connect the Arduino board to the computer using the Arduino usb and define the port.
 
 6. Follow the on-screen instructions.
 
