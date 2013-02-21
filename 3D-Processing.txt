@@ -1,3 +1,32 @@
+/* DIWire Bender
+ * 3D Wire Bender by Pensa - www.PensaNYC.com
+ * Written by Marco Perry. Email DIWire@PensaNYC.com for questions.
+ * Drives on 3 Stepper Motors to bender wire in 3D space
+ *
+ * This file is part of the DIWire project.
+ * This file bends in 3D using commands (foward 50 mm, righ 90 degrees) read from a text file.
+ *
+ *  DIWire is a free software & hardware device: you can redistribute it and/or modify
+ *  it's software under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation, version 3 of the License.
+ *
+ *  The hardware portion is licenced under the Creative Commons-Attributions-Share Alike License 3.0
+ *  The CC BY SA licence can be seen here: http://creativecommons.org/licenses/by-sa/3.0/us/
+
+
+ *  DIWIre is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License and CC-BY-SA for more details.
+
+ *  You should have received a copy of the GNU General Public License
+ *  along with DIWire.  If not, see <http://www.gnu.org/licenses/>.
+ *  and http://creativecommons.org/licenses/by-sa/3.0/us/legalcode
+ *
+ *  No portion of this header can be removed from the code.
+ *  Now enjoy and start making something!
+ */
+
 //import these libraries from libraries folder
 import processing.opengl.*;
 import processing.serial.*;
@@ -57,26 +86,26 @@ void draw() {
   rotateY (rotY);
 
   stroke (150);
-  strokeWeight (5);  
+  strokeWeight (5);
   for (int i=0; i<=loopLength-1; i++) { //draws 3D shape based on text file feed lengths, bend angles, and z bend angles
-    line (0, 0, 0, 0, pnt[i].x, 0);       
+    line (0, 0, 0, 0, pnt[i].x, 0);
     translate (0, pnt[i].x, 0);
     rotateZ (-radians(pnt[i].y));
     rotateY (-radians(pnt[i].z));
   }
 }
 
-void mousePressed () { 
+void mousePressed () {
   mp = !mp;
 }
-void mouseReleased () { 
+void mouseReleased () {
   mp = !mp;
 }
 
-void keyPressed() { 
-  switch (key) {   
+void keyPressed() {
+  switch (key) {
   case '1':
-    file1();     
+    file1();
     break;
   }
   /*if (keyCode==38) {
@@ -99,17 +128,17 @@ void keyPressed() {
 void file1 () { //sends feed and bend angles to the arduino
   println("sending...");
     for (int i = 0; i < loopLength; i++) {
-      byte feedmotor = 126; 
+      byte feedmotor = 126;
       delay (100);
       arduino.write (feedmotor); //send arduino byte marker that signifies feed length
       delay (100);
       arduino.write (byte (int(pnt[i].x))); //send arduino feed legnth
-      byte xbend = 125; 
+      byte xbend = 125;
       delay (100);
       arduino.write (xbend); //send arduino byte marker that signifies bend angle
       delay (100);
       arduino.write (byte (int(pnt[i].y))); //send arduino bend angle
-      byte zbend = 124; 
+      byte zbend = 124;
       arduino.write (zbend); //send arduino byte marker that signifies z bend angle
       delay (100);
       arduino.write (byte (int(pnt[i].z))); //send arduino z bend angle

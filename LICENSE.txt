@@ -1,0 +1,17 @@
+DIWire's is a free software & hardware device: you can redistribute
+it and/or modify it's software under the terms of the GNU General
+Public License as published by the Free Software Foundation, version 3
+of the License.
+
+The hardware portion is licenced under the Creative
+Commons-Attributions-Share Alike License 3.0. The CC BY SA licence
+can be seen here: http://creativecommons.org/licenses/by-sa/3.0/us/
+
+DIWIre is distributed in the hope that it will be useful, but WITHOUT
+ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License
+and CC-BY-SA for more details.
+
+You should have received a copy of the GNU General Public License along
+with DIWire. If not, see http://http://www.gnu.org/licenses/gpl-3.0.txt
+and http://creativecommons.org/licenses/by-sa/3.0/us/legalcode

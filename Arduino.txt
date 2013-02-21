@@ -1,13 +1,33 @@
-/*
- * DIWire Bender
+/* DIWire Bender
  * 3D Wire Bender by Pensa - www.PensaNYC.com
- * Written by Marco Perry. Call (718) 855 - 5354 for questions or support.
+ * Written by Marco Perry. Email DIWire@PensaNYC.com for questions.
  * Drives on 3 Stepper Motors to bender wire in 3D space
  *
+ * This file is part of the DIWire project. This is the Arduion firmware for 2D or 3D bends
+ *
+ *  DIWire is a free software & hardware device: you can redistribute it and/or modify
+ *  it's software under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation, version 3 of the License.
+ *
+ *  The hardware portion is licenced under the Creative Commons-Attributions-Share Alike License 3.0
+ *  The CC BY SA licence can be seen here: http://creativecommons.org/licenses/by-sa/3.0/us/
+
+
+ *  DIWIre is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License and CC-BY-SA for more details.
+
+ *  You should have received a copy of the GNU General Public License
+ *  along with DIWire.  If not, see <http://www.gnu.org/licenses/>.
+ *  and http://creativecommons.org/licenses/by-sa/3.0/us/legalcode
+ *
+ *  No portion of this header can be removed from the code.
+ *  Now enjoy and start making something!
  */
 
-/*This program is to be uploaded onto the DIWire  arduino. 
- Bend angles and feed lengths are imported from processing running on a computer plugged into the arduino. 
+/*This program is to be uploaded onto the DIWire  arduino.
+ Bend angles and feed lengths are imported from processing running on a computer plugged into the arduino.
  This program takes these lengths and angles and moves the motors and solenoid accordingly.
  */
 
@@ -42,7 +62,7 @@ const int pulseDelay = 700;
 // Drive directions in english
 boolean ccw = true; // counter-clockwise drive direction
 boolean cw = false; // clockwise drive direction
-boolean curDir = cw; // resets direction before next angle command 
+boolean curDir = cw; // resets direction before next angle command
 
 int lastbend = 0;
 int fieldindex=0;
@@ -51,18 +71,18 @@ int values[300]; //creates array
 void setup() {
   Serial.begin (9600); //com port communication
   pinMode (bendMotorPls, OUTPUT); //Declaring motor pins as out
-  pinMode (zMotorPls, OUTPUT); 
-  pinMode (feedMotorPls, OUTPUT); 
-  pinMode (bendMotorAWO, OUTPUT); 
-  pinMode (zMotorAWO, OUTPUT); 
-  pinMode (feedMotorAWO, OUTPUT); 
+  pinMode (zMotorPls, OUTPUT);
+  pinMode (feedMotorPls, OUTPUT);
+  pinMode (bendMotorAWO, OUTPUT);
+  pinMode (zMotorAWO, OUTPUT);
+  pinMode (feedMotorAWO, OUTPUT);
   pinMode (bendMotorDir, OUTPUT);
-  pinMode (zMotorDir, OUTPUT); 
-  pinMode (feedMotorDir, OUTPUT); 
-  pinMode (benderPin, OUTPUT); 
+  pinMode (zMotorDir, OUTPUT);
+  pinMode (feedMotorDir, OUTPUT);
+  pinMode (benderPin, OUTPUT);
   digitalWrite (bendMotorPls, LOW); //starts with everything off
-  digitalWrite (zMotorPls, LOW); 
-  digitalWrite (feedMotorPls, LOW); 
+  digitalWrite (zMotorPls, LOW);
+  digitalWrite (feedMotorPls, LOW);
   digitalWrite (benderPin, LOW);
   digitalWrite (zMotorAWO, HIGH);
   digitalWrite (feedMotorAWO, HIGH);
@@ -82,20 +102,20 @@ void bend (float angle) {     //bender pin movement
     float rotations = 0;
     angle = abs(angle);
     if (angle <= 90){
-      angle = -.0012*angle*angle+.5959*angle+.2452; //converts angle into calibrated motor steps 
+      angle = -.0012*angle*angle+.5959*angle+.2452; //converts angle into calibrated motor steps
       angle = 6000 * (angle/360)+220;
     }
     else if (91 <= angle <= 120){
-      angle = .0044*angle*angle-.5481*angle+57.981; //converts angle into calibrated motor steps 
+      angle = .0044*angle*angle-.5481*angle+57.981; //converts angle into calibrated motor steps
       angle = 5960 * (angle/360)+220;
     }
     else if (121<=angle<=180){
-      angle = angle-63.26;  //converts angle into calibrated motor steps 
+      angle = angle-63.26;  //converts angle into calibrated motor steps
       angle = 5960 * (angle/360)+220;
-    }   //calibration will differ depending on set up 
+    }   //calibration will differ depending on set up
     rotations = angle;
     // Serial.println (angle);
-    digitalWrite (bendMotorDir, dir);  
+    digitalWrite (bendMotorDir, dir);
     for (int i=0; i <=rotations  ; i++){ //moves bender bin the desired angle
       digitalWrite(bendMotorPls, HIGH);
       delayMicroseconds (pulseWidth);
@@ -118,7 +138,7 @@ void rotatePin (boolean dir, float angle) { //moves bender pin during duck. dire
   angle = 6000 * (angle/360); //converts angle to steps
   rotations = angle;
   Serial.println (dir);
-  digitalWrite (bendMotorDir, dir);  
+  digitalWrite (bendMotorDir, dir);
   for (int i=0; i <=rotations  ; i++){ //rotates bender motor appropriate number of steps
     digitalWrite(bendMotorPls, HIGH);
     delayMicroseconds (pulseWidth);
@@ -158,7 +178,7 @@ void feed (float dist) { //feeds wire
     dist = 2000 * dist/feedCalib;  //dist converted from mm to steps
     rotations = dist;
     digitalWrite (feedMotorDir, 1);  //feed motor only moves forward
-    for (int i=0; i <=rotations  ; i++){ //rotate feed motor appropriate number of steps 
+    for (int i=0; i <=rotations  ; i++){ //rotate feed motor appropriate number of steps
       digitalWrite(feedMotorPls, HIGH);
       delayMicroseconds (pulseWidth);
       digitalWrite(feedMotorPls, LOW);
@@ -168,7 +188,7 @@ void feed (float dist) { //feeds wire
 }
 
 void duck (){  //ducks bender pin under wire
-  digitalWrite (benderPin, HIGH); 
+  digitalWrite (benderPin, HIGH);
   delay (100);
   rotatePin (curDir, 45);
   digitalWrite (benderPin, LOW);  //pin down move under wire
@@ -200,7 +220,7 @@ void loop() {
   if (copies==1){ //once bend is complete eject shape
     delay (1000);
     motorrun();
-    feed(50); //eject 
+    feed(50); //eject
     copies=copies+1;
   }
 }
